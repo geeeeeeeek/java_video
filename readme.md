@@ -71,12 +71,13 @@ npm run dev
 ### 界面预览
 
 首页
- 
+
+![](https://raw.githubusercontent.com/geeeeeeeek/java_video/master/server/upload/image/a.png)
 
 
 后台页面
  
-
+![](https://raw.githubusercontent.com/geeeeeeeek/java_video/master/server/upload/image/b.png)
 
 
 ### 待完善功能
