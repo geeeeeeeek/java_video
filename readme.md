@@ -1,5 +1,16 @@
-# 基于Java的视频点播网站系统设计与实现
+# Java视频点播网站
+> 学习过程中，遇到问题可以咨询作者：lengqin1024（微信）
 
+### 演示地址
+
+前台地址：  http://video.gitapp.cn
+
+后台地址： http://video.gitapp.cn/admin
+
+后台管理帐号：
+
+用户名：admin123
+密码：admin123
 
 ### 功能介绍
 
@@ -12,18 +23,9 @@
 
 ### 适合人群
 
-java初级学员、大学生、系统设计人员
+大学生、系统设计人员、课程作业
 
-### 演示地址
 
-前台地址：  
-
-后台地址： 
-
-后台管理帐号：
-
-用户名：admin123
-密码：admin123
 
 ### 代码结构
 
@@ -38,15 +40,15 @@ java初级学员、大学生、系统设计人员
 
 (2) 配置application.yml文件，配置数据库和upload根目录
 
-(3) 安装mysql 5.7数据库，并创建数据库，命名为java_shop，创建SQL如下：
+(3) 安装mysql 5.7数据库，并创建数据库，创建SQL如下：
 ```
-CREATE DATABASE IF NOT EXISTS java_shop DEFAULT CHARSET utf8 COLLATE utf8_general_ci
+CREATE DATABASE IF NOT EXISTS xxx DEFAULT CHARSET utf8 COLLATE utf8_general_ci
 ```
 (4) 恢复sql数据。在mysql下依次执行如下命令：
 
 ```
-mysql> use java_shop;
-mysql> source D:/xxx/xxx/shop.sql;
+mysql> use xx;
+mysql> source D:/xxx/xxx/xxx.sql;
 ```
 
 (5) 启动后端服务：点击IDEA顶部run按钮
