@@ -38,88 +38,9 @@ public class ThingController {
     public APIResponse list(String keyword, String sort, String c, String tag){
         List<Thing> list =  service.getThingList(keyword, sort, c, tag);
 
+        // 未完待续。。
         return new APIResponse(ResponeCode.SUCCESS, "查询成功", list);
     }
-
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public APIResponse detail(String id){
-        Thing thing =  service.getThingById(id);
-        thing.setPv(String.valueOf(Integer.parseInt(thing.getPv()) + 1));
-        service.updateThing(thing);
-
-        return new APIResponse(ResponeCode.SUCCESS, "查询成功", thing);
-    }
-
-    @Access(level = AccessLevel.ADMIN)
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    @Transactional
-    public APIResponse create(Thing thing) throws IOException {
-        saveThing(thing);
-
-        service.createThing(thing);
-        return new APIResponse(ResponeCode.SUCCESS, "创建成功");
-    }
-
-    @Access(level = AccessLevel.ADMIN)
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public APIResponse delete(String ids){
-        System.out.println("ids===" + ids);
-        // 批量删除
-        String[] arr = ids.split(",");
-        for (String id : arr) {
-            service.deleteThing(id);
-        }
-        return new APIResponse(ResponeCode.SUCCESS, "删除成功");
-    }
-
-    @Access(level = AccessLevel.ADMIN)
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    @Transactional
-    public APIResponse update(Thing thing) throws IOException {
-        System.out.println(thing);
-        saveThing(thing);
-
-        service.updateThing(thing);
-        return new APIResponse(ResponeCode.SUCCESS, "更新成功");
-    }
-
-    public void saveThing(Thing thing) throws IOException {
-        // ====================存封面========================
-        MultipartFile file = thing.getImageFile();
-        String newFileName = null;
-        if(file !=null && !file.isEmpty()) {
-            // 存文件
-            String oldFileName = file.getOriginalFilename();
-            String randomStr = UUID.randomUUID().toString();
-            newFileName = randomStr + oldFileName.substring(oldFileName.lastIndexOf("."));
-            String filePath = uploadPath + File.separator + "image" + File.separator + newFileName;
-            File destFile = new File(filePath);
-            if(!destFile.getParentFile().exists()){
-                destFile.getParentFile().mkdirs();
-            }
-            file.transferTo(destFile);
-        }
-        if(!StringUtils.isEmpty(newFileName)) {
-            thing.cover = newFileName;
-        }
-        // ====================存视频========================
-        MultipartFile rawFile = thing.getRawFile();
-        String rawFileName = null;
-        if(rawFile !=null && !rawFile.isEmpty()) {
-            // 存文件
-            String oldFileName = rawFile.getOriginalFilename();
-            String randomStr = UUID.randomUUID().toString();
-            rawFileName = randomStr + oldFileName.substring(oldFileName.lastIndexOf("."));
-            String filePath = uploadPath + File.separator + "raw" + File.separator + rawFileName;
-            File destFile = new File(filePath);
-            if(!destFile.getParentFile().exists()){
-                destFile.getParentFile().mkdirs();
-            }
-            rawFile.transferTo(destFile);
-        }
-        if(!StringUtils.isEmpty(rawFileName)) {
-            thing.raw = rawFileName;
-        }
-    }
-
+ 
+ 
 }
