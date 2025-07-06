@@ -33,6 +33,14 @@
 - server目录是后端代码
 - web目录是前端代码
 
+
+
+### 视频讲解
+
+https://youtu.be/_Ir0W0Gte8M?si=FNlzFU8dagzS-TbH
+
+
+
 ### 部署运行
 
 #### 后端运行步骤
@@ -74,9 +82,6 @@ npm run dev
 5. 在浏览器输入: http://localhost:3000 即可预览
 
 
-### 视频讲解
-
-https://youtu.be/_Ir0W0Gte8M?si=FNlzFU8dagzS-TbH
 
 
 ### 界面预览
